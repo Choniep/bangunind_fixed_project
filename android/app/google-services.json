@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1034585412397",
+    "project_id": "tugas-akhir-bangunin",
+    "storage_bucket": "tugas-akhir-bangunin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034585412397:android:98f781f491d916626939a4",
+        "android_client_info": {
+          "package_name": "com.example.bangunind_fixed_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNSF3rZVrZxV4UwvhtvSoZGINAOEXb0Pg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
