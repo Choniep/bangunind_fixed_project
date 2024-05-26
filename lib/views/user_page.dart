@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:bangunind_fixed_project/controllers/bottom_nav_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +12,6 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
-  final user = FirebaseAuth.instance.currentUser!;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,18 +19,58 @@ class _UserPageState extends State<UserPage> {
         decoration: BoxDecoration(
           color: Color.fromRGBO(217, 213, 202, 1.0),
         ),
-        child: Center(
-          child: Column(
-            children: [
-              Text('Signed In As: ' + user.email!),
-              MaterialButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                },
-                child: Text('signout'),
-              )
-            ],
-          ),
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'My Profile',
+                    style: TextStyle(fontSize: 36),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              color: Color.fromRGBO(14, 36, 50, 1.0),
+              height: 400,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.redAccent,
+                    borderRadius: BorderRadius.circular(20)),
+                height: 330,
+                width: MediaQuery.of(context).size.width,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Logout',
+                          style: TextStyle(fontSize: 24, color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Divider(
+                        height: 2,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
       bottomNavigationBar: BottomNav(selectedItem: 2),

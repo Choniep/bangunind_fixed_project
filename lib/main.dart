@@ -1,3 +1,5 @@
+import 'package:bangunind_fixed_project/views/auth/main_page.dart';
+import 'package:bangunind_fixed_project/views/detail_page.dart';
 import 'package:bangunind_fixed_project/views/home_screen.dart';
 import 'package:bangunind_fixed_project/views/search_page.dart';
 import 'package:bangunind_fixed_project/views/sign_in_page.dart';
@@ -6,8 +8,15 @@ import 'package:bangunind_fixed_project/views/user_page.dart';
 import 'package:bangunind_fixed_project/views/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -38,7 +47,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           fontFamily: 'Product Sans'),
-      home: WelcomePage(),
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
       initialRoute: '/',
       routes: {
         '/home': (context) => HomeScreen(),
@@ -47,6 +57,7 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => WelcomePage(),
         '/signup': (context) => SignUpPage(),
         '/singin': (context) => SignInPage(),
+        '/detail': (context) => DetailPage(),
       },
     );
   }
