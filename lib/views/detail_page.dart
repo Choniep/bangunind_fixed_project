@@ -1,6 +1,7 @@
 import 'package:bangunind_fixed_project/models/design_data.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -17,7 +18,7 @@ class DetailPage extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Iconsax.back_square)),
+            icon: Icon(Icons.arrow_back)),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -31,7 +32,7 @@ class DetailPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
                 designArgs.gambar,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
             ),
             Padding(
@@ -52,43 +53,52 @@ class DetailPage extends StatelessWidget {
                       Text('Land Area: ' + designArgs.luastanah.toString()),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
                         children: [
-                          Icon(Iconsax.back_square),
-                          Text(designArgs.kamar.toString() + 'bed'),
+                          Icon(Icons.bedtime),
+                          Text(designArgs.kamar.toString() + ' bedroom'),
                         ],
                       ),
                       Column(
                         children: [
-                          Icon(Iconsax.back_square),
-                          Text(designArgs.toilet.toString() + 'bed'),
+                          Icon(Icons.clean_hands),
+                          Text(designArgs.toilet.toString() + ' bathroom'),
                         ],
                       ),
                       Column(
                         children: [
-                          Icon(Iconsax.back_square),
-                          Text(designArgs.listrik.toString() + 'bed'),
+                          Icon(Icons.bolt),
+                          Text(designArgs.listrik.toString() + ' electricity'),
                         ],
                       ),
                       Column(
                         children: [
-                          Icon(Iconsax.back_square),
-                          Text(designArgs.taman.toString() + 'bed'),
+                          Icon(Icons.eco),
+                          Text(designArgs.taman.toString() + ' garden'),
                         ],
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     'Rp' + designArgs.harga.toString(),
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   MaterialButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/search');
-                    },
+                    // ignore: deprecated_member_use
+                    onPressed: () => launch(
+                        'https://api.whatsapp.com/send/?phone=6287777588573&text&type=phone_number&app_absent=0'),
                     color: Color(0xffff5630),
                     elevation: 0,
                     shape: RoundedRectangleBorder(

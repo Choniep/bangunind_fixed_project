@@ -1,4 +1,5 @@
 import 'package:bangunind_fixed_project/controllers/bottom_nav_bar.dart';
+import 'package:bangunind_fixed_project/widget/banner_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,16 +28,7 @@ class HomeScreen extends StatelessWidget {
                       'Perfect Home',
                       style: TextStyle(fontSize: 36),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(277, 62, 60, 1.0),
-                            borderRadius: BorderRadius.circular(20)),
-                        width: MediaQuery.of(context).size.width,
-                        height: 400,
-                      ),
-                    ),
+                    BannerWidget(),
                     SizedBox(
                       height: 20,
                     ),

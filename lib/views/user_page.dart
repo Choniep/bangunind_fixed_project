@@ -4,14 +4,9 @@ import 'package:bangunind_fixed_project/controllers/bottom_nav_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class UserPage extends StatefulWidget {
+class UserPage extends StatelessWidget {
   const UserPage({super.key});
 
-  @override
-  State<UserPage> createState() => _UserPageState();
-}
-
-class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +33,10 @@ class _UserPageState extends State<UserPage> {
               width: MediaQuery.of(context).size.width,
               color: Color.fromRGBO(14, 36, 50, 1.0),
               height: 400,
+              child: Icon(
+                Icons.person,
+                size: 100,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -52,12 +51,22 @@ class _UserPageState extends State<UserPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Logout',
-                          style: TextStyle(fontSize: 24, color: Colors.white),
-                        ),
+                      Row(
+                        children: [
+                          Icon(Icons.backspace),
+                          TextButton(
+                            onPressed: () async {
+                              await FirebaseAuth.instance.signOut();
+                              Navigator.pushReplacementNamed(
+                                  context, '/welcome');
+                            },
+                            child: Text(
+                              'Logout',
+                              style:
+                                  TextStyle(fontSize: 24, color: Colors.white),
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 10,

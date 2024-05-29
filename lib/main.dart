@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           fontFamily: 'Product Sans'),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: MainPage(),
       initialRoute: '/',
       routes: {
         '/home': (context) => HomeScreen(),

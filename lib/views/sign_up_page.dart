@@ -1,4 +1,6 @@
+import 'package:bangunind_fixed_project/views/auth/fire_auth_regis.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -8,6 +10,25 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  //text controllers
+  final _emailcontroller = TextEditingController();
+  final _passwordcontroller = TextEditingController();
+  final _usernamecontroller = TextEditingController();
+
+  Future signUp() async {
+    await FireAuthRegis().registerMas(context, _emailcontroller.text,
+        _passwordcontroller.text, _usernamecontroller.text);
+  }
+
+  @override
+  void dispose() {
+    _emailcontroller.dispose();
+    _usernamecontroller.dispose();
+    _passwordcontroller.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,18 +60,22 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 20,
                     ),
                     TextField(
+                      controller: _usernamecontroller,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           hintText: 'Username',
                           hintStyle: TextStyle(color: Colors.white)),
                     ),
                     TextField(
+                      controller: _emailcontroller,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           hintText: 'Email',
                           hintStyle: TextStyle(color: Colors.white)),
                     ),
                     TextField(
+                      obscureText: true,
+                      controller: _passwordcontroller,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           hintText: 'Password',

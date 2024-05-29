@@ -17,9 +17,11 @@ class _SignInPageState extends State<SignInPage> {
 
   Future signIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailcontroller.text.trim(),
-      password: _passwordcontroller.text.trim(),
+      email: _emailcontroller.text,
+      password: _passwordcontroller.text,
     );
+
+    Navigator.pushNamed(context, '/home');
   }
 
   @override
@@ -71,6 +73,7 @@ class _SignInPageState extends State<SignInPage> {
 
                     //password textfield
                     TextField(
+                      obscureText: true,
                       controller: _passwordcontroller,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -83,6 +86,7 @@ class _SignInPageState extends State<SignInPage> {
                       child: MaterialButton(
                         onPressed: () {
                           signIn();
+                          print('masuk');
                         },
                         color: Color(0xffff5630),
                         elevation: 0,
@@ -91,7 +95,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         padding: EdgeInsets.all(16),
                         child: Text(
-                          "Button",
+                          "Sign In",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
@@ -112,7 +116,8 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         TextButton(
                             onPressed: () {
-                              signIn;
+                              Navigator.pushReplacementNamed(
+                                  context, '/signup');
                             },
                             child: Text(
                               'Sign Up',

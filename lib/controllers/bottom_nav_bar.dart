@@ -1,6 +1,7 @@
 import 'package:bangunind_fixed_project/views/home_screen.dart';
 import 'package:bangunind_fixed_project/views/search_page.dart';
 import 'package:bangunind_fixed_project/views/user_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -22,7 +23,7 @@ class _BottomNavState extends State<BottomNav> {
       Navigator.pushReplacementNamed(context, '/home');
     } else if (index == 1) {
       Navigator.pushReplacementNamed(context, '/search');
-    } else if (index == 2){
+    } else if (index == 2) {
       Navigator.pushReplacementNamed(context, '/user');
     }
   }
@@ -32,15 +33,15 @@ class _BottomNavState extends State<BottomNav> {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Iconsax.home),
+          icon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Iconsax.search_favorite),
+          icon: Icon(Icons.search_sharp),
           label: 'Search',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Iconsax.user),
+          icon: Icon(Icons.person),
           label: 'User',
         ),
       ],
@@ -52,4 +53,3 @@ class _BottomNavState extends State<BottomNav> {
     );
   }
 }
-

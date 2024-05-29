@@ -37,11 +37,28 @@ class WelcomePage extends StatelessWidget {
               SizedBox(
                 height: 200,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/signup');
-                  },
-                  child: Text("Hai")),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/signup');
+                },
+                color: Color(0xffff5630),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40.0),
+                ),
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  "Get Started",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.normal,
+                  ),
+                ),
+                textColor: Color(0xffffffff),
+                height: 40,
+                minWidth: MediaQuery.of(context).size.width,
+              ),
             ],
           ),
         ),

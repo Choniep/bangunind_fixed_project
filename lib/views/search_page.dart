@@ -7,19 +7,20 @@ class SearchPage extends StatelessWidget {
   final List<DesignData> desain = [
     DesignData(
       judul: "Maizena",
-      deskripsi: 'lorem ipsum',
+      deskripsi:
+          'Hunian modern dengan luas bangunan yang cukup luas untuk keluarga kecil',
       gambar: 'assets/images/architect/rumah3.jpg',
-      luasbangun: 40,
-      luastanah: 100,
-      kamar: 3,
+      luasbangun: 90,
+      luastanah: 125,
+      kamar: 2,
       toilet: 1,
       listrik: 1100,
       taman: 1,
-      harga: 3000000,
+      harga: 590000000,
     ),
     DesignData(
       judul: "Cocomelon",
-      deskripsi: 'lorem ipsum',
+      deskripsi: 'rumah minimalis untuk biaya minim',
       gambar: 'assets/images/architect/rumah2.jpg',
       luasbangun: 40,
       luastanah: 100,
@@ -27,19 +28,19 @@ class SearchPage extends StatelessWidget {
       toilet: 1,
       listrik: 1100,
       taman: 1,
-      harga: 3000000,
+      harga: 325000000,
     ),
     DesignData(
       judul: "Tifosi",
-      deskripsi: 'lorem ipsum',
+      deskripsi: 'Rumah nyaman untuk para tifosi scuderia ferrari',
       gambar: 'assets/images/architect/rumah1.jpg',
-      luasbangun: 40,
-      luastanah: 100,
+      luasbangun: 200,
+      luastanah: 300,
       kamar: 3,
       toilet: 1,
-      listrik: 1100,
-      taman: 1,
-      harga: 3000000,
+      listrik: 3300,
+      taman: 2,
+      harga: 39500000000,
     ),
   ];
 
@@ -53,7 +54,7 @@ class SearchPage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color.fromRGBO(217, 213, 202, 1.0),
             ),
-            height: MediaQuery.of(context).size.height - 58,
+            height: MediaQuery.of(context).size.height - 60,
             child: Expanded(
                 child: ListView.builder(
                     itemCount: desain.length,
@@ -98,8 +99,8 @@ class SearchPage extends StatelessWidget {
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(15)),
+                                    color: Colors.red,
+                                  ),
                                   height: 30,
                                   width: MediaQuery.of(context).size.width,
                                   child: Padding(
